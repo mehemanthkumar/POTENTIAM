@@ -1,0 +1,21 @@
+<ul>
+    <li><a class="active" href="#home">Posts</a></li>
+    <li><a href="#news">Create Post</a></li>
+</ul>
+
+<table>
+    <tr>
+      <th>User Id</th>
+      <th>Id</th>
+      <th>Title</th>
+      <th>Body</th>
+    </tr>
+    <tr *ngFor="let data of todo$ | async">
+      <td>{{data.userId}}</td>
+      <td>{{data.id}}</td>
+      <td>{{data.title}}</td>
+      <td>{{data.body}}</td>
+      
+    </tr>
+   
+  </table>
