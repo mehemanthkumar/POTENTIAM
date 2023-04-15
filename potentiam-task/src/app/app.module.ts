@@ -9,11 +9,13 @@ import { PostsEffects } from './post-data/post-state/posts-effects';
 import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http';
 import { PostDataComponent } from './post-data/post-data.component';
+import { PostCreateComponent } from './post-data/post-create/post-create.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PostDataComponent
+    PostDataComponent,
+    PostCreateComponent
   ],
   imports: [
     BrowserModule,

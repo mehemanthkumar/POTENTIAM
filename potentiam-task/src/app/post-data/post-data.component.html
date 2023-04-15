@@ -1,21 +1,19 @@
-<ul>
-    <li><a class="active">Posts</a></li>
-    <li><a href="#news">Create Post</a></li>
-</ul>
-<span *ngIf="Error | async" class="error-message">{{Error |  async}}</span>
-<table>
-    <tr>
-      <th>User Id</th>
-      <th>Id</th>
-      <th>Title</th>
-      <th>Body</th>
-    </tr>
-    <tr *ngFor="let data of postApiData$ | async">
-      <td>{{data.userId}}</td>
-      <td>{{data.id}}</td>
-      <td>{{data.title}}</td>
-      <td>{{data.body}}</td>
-      
-    </tr>
-   
-  </table>
+<span *ngIf="Error | async; else table" class="error-message">{{Error | async}}</span>
+<ng-template #table>
+    <table>
+        <tr>
+            <th>User Id</th>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Body</th>
+        </tr>
+        <tr *ngFor="let data of postApiData$ | async">
+            <td>{{data.userId}}</td>
+            <td>{{data.id}}</td>
+            <td>{{data.title}}</td>
+            <td>{{data.body}}</td>
+
+        </tr>
+
+    </table>
+</ng-template>

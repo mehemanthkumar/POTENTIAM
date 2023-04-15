@@ -1,3 +1,6 @@
-<router-outlet></router-outlet>
+<ul>
+  <li><a routerLinkActive="active" [routerLink]="'/posts'">Posts</a></li>
+  <li><a routerLinkActive="active" [routerLink]="'/post-create'">Create Post</a></li>
+</ul>
 
-<app-post-data></app-post-data>
+<router-outlet></router-outlet>
