@@ -8,8 +8,9 @@ export interface postModel {
 
 export interface PostState {
     Posts: Array<postModel>;
+    PostError:string;
 }
 
 export const initializeState = (): PostState => {
-    return { Posts: Array<postModel>() };
+    return { Posts: Array<postModel>(), PostError:''};
   };

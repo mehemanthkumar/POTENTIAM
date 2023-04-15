@@ -4,7 +4,7 @@ import { PostState, postModel } from './post-state/post-state';
 import { Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { BeginPostDoAction } from './post-state/post-actions';
-import { getState } from './post-state/post-selectors';
+import { getErrorMessage, getState } from './post-state/post-selectors';
 
 @Component({
   selector: 'app-post-data',
@@ -12,21 +12,18 @@ import { getState } from './post-state/post-selectors';
   styleUrls: ['./post-data.component.scss']
 })
 export class PostDataComponent implements OnInit {
-  todo$:Observable<postModel[]> | undefined;
+  postApiData$:Observable<postModel[]> | undefined;
+  Error?:Observable<string>;
   constructor(private store: Store<{ Posts: postModel }>) { 
   }
 
   ngOnInit(): void {
-    // this.todo$
-    //   .pipe(
-    //     map(x => {
-    //       console.log(x);
-    //     })
-    //   )
-    //   .subscribe();
-
-    this.todo$ = this.store.select(getState);
+    // Api Call Invoke
     this.store.dispatch(BeginPostDoAction());
+    // Api Reponse caputring
+    this.postApiData$ = this.store.select(getState);
+    // Error Handling
+    this.Error = this.store.select(getErrorMessage);
   }
 
 }

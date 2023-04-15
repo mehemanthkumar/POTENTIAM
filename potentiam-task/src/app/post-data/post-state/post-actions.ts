@@ -13,4 +13,4 @@ export const SuccessGetPostAction = createAction(
 );
 
 
-export const ErrorPostAction = createAction('[Post] - Error', props<Error>());
+export const ErrorMessage = createAction('[Post] - Error', props<{message: string}>());

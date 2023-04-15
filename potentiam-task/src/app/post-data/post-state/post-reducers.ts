@@ -1,6 +1,6 @@
 import { Action, createReducer, on } from "@ngrx/store";
 import { PostState, initializeState } from "./post-state";
-import { ErrorPostAction, GetPostAction, SuccessGetPostAction } from "./post-actions";
+import { ErrorMessage, GetPostAction, SuccessGetPostAction } from "./post-actions";
 
 export const intialState = initializeState();
 
@@ -10,9 +10,8 @@ const reducer = createReducer(intialState,
     on(SuccessGetPostAction, (state: PostState, { payload }) => {
         return { ...state, Posts: payload };
       }),
-    on(ErrorPostAction, (state: PostState, error: Error) => {
-        console.log(error);
-        return { ...state, PostError: error };
+    on(ErrorMessage, (state:PostState , action) => {
+        return { ...state, PostError: action.message };
     })
 )
 

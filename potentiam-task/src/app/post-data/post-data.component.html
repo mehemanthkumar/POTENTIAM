@@ -1,8 +1,8 @@
 <ul>
-    <li><a class="active" href="#home">Posts</a></li>
+    <li><a class="active">Posts</a></li>
     <li><a href="#news">Create Post</a></li>
 </ul>
-
+<span *ngIf="Error | async" class="error-message">{{Error |  async}}</span>
 <table>
     <tr>
       <th>User Id</th>
@@ -10,7 +10,7 @@
       <th>Title</th>
       <th>Body</th>
     </tr>
-    <tr *ngFor="let data of todo$ | async">
+    <tr *ngFor="let data of postApiData$ | async">
       <td>{{data.userId}}</td>
       <td>{{data.id}}</td>
       <td>{{data.title}}</td>
