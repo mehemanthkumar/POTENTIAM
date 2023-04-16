@@ -1,16 +1,22 @@
 import { createAction, props } from '@ngrx/store';
 import { postModel } from './post-state';
 
+enum actionName {
+  getPost =  '[Post] - Get Post',
+  beginPost = '[Post] - Begin Get Post',
+  successGetPost = '[Post] - Success Get Post',
+  errorInPost = '[Post] - Error',
+  search_filter = '[Post] - search_ filter',
+} 
 
+export const GetPostAction = createAction(actionName.getPost);
 
-export const GetPostAction = createAction('[Post] - Get Post');
-
-export const BeginPostDoAction = createAction('[Post] - Begin Get Post');
+export const BeginPostDoAction = createAction(actionName.beginPost);
 
 export const SuccessGetPostAction = createAction(
-  '[Post] - Success Get Post',
+  actionName.successGetPost,
   props<{ payload: postModel[] }>()
 );
 
 
-export const ErrorMessage = createAction('[Post] - Error', props<{message: string}>());
+export const ErrorMessage = createAction(actionName.errorInPost, props<{message: string}>());
