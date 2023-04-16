@@ -4,8 +4,7 @@ import { ErrorMessage, GetPostAction, SuccessGetPostAction } from "./post-action
 
 export const intialState = initializeState();
 
-
-const reducer = createReducer(intialState, 
+const postReducer = createReducer(intialState, 
     on(GetPostAction, state => state),
     on(SuccessGetPostAction, (state: PostState, { payload }) => {
         return { ...state, Posts: payload };
@@ -16,5 +15,5 @@ const reducer = createReducer(intialState,
 )
 
 export function PostReducer(state: PostState | undefined, action: Action) {
-    return reducer(state, action);
-  }
+    return postReducer(state, action);
+}

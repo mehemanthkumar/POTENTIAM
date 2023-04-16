@@ -6,7 +6,6 @@ enum actionName {
   beginPost = '[Post] - Begin Get Post',
   successGetPost = '[Post] - Success Get Post',
   errorInPost = '[Post] - Error',
-  search_filter = '[Post] - search_ filter',
 } 
 
 export const GetPostAction = createAction(actionName.getPost);

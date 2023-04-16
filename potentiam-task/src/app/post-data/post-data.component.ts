@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { select, Store } from '@ngrx/store';
-import { PostState, postModel } from './post-state/post-state';
-import { Observable, Subscription } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Store } from '@ngrx/store';
+import { postModel } from './post-state/post-state';
+import { Observable } from 'rxjs';
 import { BeginPostDoAction } from './post-state/post-actions';
 import { getErrorMessage, getState } from './post-state/post-selectors';
 
